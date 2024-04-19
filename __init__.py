@@ -8,7 +8,11 @@ from nodes import CheckpointLoaderSimple, MAX_RESOLUTION
 
 script_dir = os.path.dirname(__file__)
 
+# Load checkpoint configuration
+with open(os.path.join(script_dir, "models_config.yaml"), 'r') as stream:
+    config_file = yaml.safe_load(stream)
 
+# Node
 class CheckpointAutomaticConfig(CheckpointLoaderSimple):
     @classmethod
     def INPUT_TYPES(s):
