@@ -52,8 +52,6 @@ class CheckpointAutomaticConfig(CheckpointLoaderSimple):
 
     def load_checkpoint(self, automatic_config, steps_total, cfg, sampler_name, scheduler, **kwargs):
         if automatic_config:
-            with open(os.path.join(script_dir, "models_config.yaml"), 'r') as stream:
-                config_file = yaml.safe_load(stream)
             if kwargs["ckpt_name"] in config_file:
                 steps_total = config_file[kwargs["ckpt_name"]]["steps_total"]
                 cfg = config_file[kwargs["ckpt_name"]]["cfg"]
