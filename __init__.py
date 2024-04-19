@@ -51,17 +51,16 @@ class CheckpointAutomaticConfig(CheckpointLoaderSimple):
     )
 
     def load_checkpoint(self, automatic_config, steps_total, cfg, sampler_name, scheduler, **kwargs):
-        if automatic_config:
-            if kwargs["ckpt_name"] in config_file:
-                steps_total = config_file[kwargs["ckpt_name"]]["steps_total"]
-                cfg = config_file[kwargs["ckpt_name"]]["cfg"]
-                sampler_name = config_file[kwargs["ckpt_name"]]["sampler_name"]
-                scheduler = config_file[kwargs["ckpt_name"]]["scheduler"]
-                print(
-                    "======== Applying checkpoint automatic configuration: steps: {} | cfg: {} | sampler: {} | scheduler: {} ========".format(steps_total, cfg, sampler_name, scheduler))
-            else:
-                raise Exception(
-                    "Automatic checkpoint configuration: unknown checkpoint. Disable \"automatic_config\" to use this checkpoint.")
+        if automatic_config and kwargs["ckpt_name"] in config_file:
+            steps_total = config_file[kwargs["ckpt_name"]]["steps_total"]
+            cfg = config_file[kwargs["ckpt_name"]]["cfg"]
+            sampler_name = config_file[kwargs["ckpt_name"]]["sampler_name"]
+            scheduler = config_file[kwargs["ckpt_name"]]["scheduler"]
+            print(
+                "======== Applying checkpoint automatic configuration: steps: {} | cfg: {} | sampler: {} | scheduler: {} ========".format(steps_total, cfg, sampler_name, scheduler))
+        else:
+            raise Exception(
+                "Automatic checkpoint configuration: unknown checkpoint. Disable \"automatic_config\" to use this checkpoint.")
 
         out = super().load_checkpoint(**kwargs)
         return out + (
