@@ -1,0 +1,36 @@
+---
+juggernautXL_v9Rdphoto2Lightning.safetensors:
+  steps_total: 6
+  cfg: 1.5
+  sampler_name: "dmppp_sde"
+  scheduler: "karras"
+dreamshaperXL_lightningDPMSDE.safetensors:
+  steps_total: 6
+  cfg: 2
+  sampler_name: "dmppp_sde"
+  scheduler: "karras"
+dreamshaperXL_dreamshaperXL.safetensors:
+  steps_total: 8
+  cfg: 2
+  sampler_name: "dmppp_sde"
+  scheduler: "karras"
+leosamsHelloworldXL_hw50EulerALightning.safetensors:
+  steps_total: 8
+  cfg: 1
+  sampler_name: "euler_ancestral"
+  scheduler: "karras"
+moxieDiffusionXL_v16.safetensors:
+  steps_total: 7
+  cfg: 1.2
+  sampler_name: "dmppp_sde"
+  scheduler: "karras"
+realvisxlV40_v40LightningBakedvae.safetensors:
+  steps_total: 6
+  cfg: 1.5
+  sampler_name: "dmppp_sde"
+  scheduler: "karras"
+turbovisionxlSuperFastXLBasedOnNew_tvxlV32Bakedvae.safetensors:
+  steps_total: 5
+  cfg: 1.5
+  sampler_name: "dmppp_sde"
+  scheduler: "karras"

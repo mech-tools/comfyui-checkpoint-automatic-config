@@ -1,9 +1,12 @@
-# Checkpoint Config Loader
+# Checkpoint Automatic Config
 # Created by DarkDinDoN
-# Version: 0.0.1
 
+import os
+import yaml
 import comfy.samplers
 from nodes import CheckpointLoaderSimple, MAX_RESOLUTION
+
+script_dir = os.path.dirname(__file__)
 
 
 class CheckpointAutomaticConfig(CheckpointLoaderSimple):
@@ -45,10 +48,20 @@ class CheckpointAutomaticConfig(CheckpointLoaderSimple):
 
     def load_checkpoint(self, automatic_config, steps_total, cfg, sampler_name, scheduler, **kwargs):
         if automatic_config:
-            steps_total = 0
+            with open(os.path.join(script_dir, "models_config.yaml"), 'r') as stream:
+                config_file = yaml.safe_load(stream)
+            if kwargs["ckpt_name"] in config_file:
+                steps_total = config_file[kwargs["ckpt_name"]]["steps_total"]
+                cfg = config_file[kwargs["ckpt_name"]]["cfg"]
+                sampler_name = config_file[kwargs["ckpt_name"]]["sampler_name"]
+                scheduler = config_file[kwargs["ckpt_name"]]["scheduler"]
+                print(
+                    "======== Applying checkpoint automatic configuration: steps: {} | cfg: {} | sampler: {} | scheduler: {} ========".format(steps_total, cfg, sampler_name, scheduler))
+            else:
+                raise Exception(
+                    "Automatic checkpoint configuration: unknown checkpoint. Disable \"automatic_config\" to use this checkpoint.")
 
         out = super().load_checkpoint(**kwargs)
-        print(out)
         return out + (
             steps_total,
             cfg,
@@ -64,5 +77,5 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "CheckpointAutomaticConfig": "Checkpoint Automatic Loader"
+    "CheckpointAutomaticConfig": "Checkpoint Automatic Config"
 }
