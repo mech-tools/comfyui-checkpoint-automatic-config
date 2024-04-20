@@ -1,19 +1,21 @@
 # Checkpoint Automatic Config
 # Created by DarkDinDoN
-
 import os
 import yaml
 import comfy.samplers
 from nodes import CheckpointLoaderSimple, MAX_RESOLUTION
 
-script_dir = os.path.dirname(__file__)
 
 # Load checkpoint configuration
 def readConfigFile(file_path):
     with open(file_path, 'r') as file:
         return yaml.safe_load(file)
 
+
+# Globals
+script_dir = os.path.dirname(__file__)
 config_file = readConfigFile(os.path.join(script_dir, "models_config.yaml"))
+
 
 # Node
 class CheckpointAutomaticConfig(CheckpointLoaderSimple):
@@ -34,8 +36,8 @@ class CheckpointAutomaticConfig(CheckpointLoaderSimple):
                     "max": 100.0,
                     "step": 0.1,
                     }),
-            "sampler_name": (comfy.samplers.KSampler.SAMPLERS,),
-            "scheduler": (comfy.samplers.KSampler.SCHEDULERS,),
+            "sampler_name": (comfy.samplers.SAMPLER_NAMES,),
+            "scheduler": (comfy.samplers.SCHEDULER_NAMES,),
         })
         return types
 
