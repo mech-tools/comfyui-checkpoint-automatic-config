@@ -6,17 +6,17 @@ juggernautXL_v9Rdphoto2Lightning.safetensors:
   scheduler_name: "karras"
 dreamshaperXL_lightningDPMSDE.safetensors:
   steps_total: 6
-  cfg: 2
+  cfg: 2.0
   sampler_name: "dpmpp_sde"
   scheduler_name: "karras"
 dreamshaperXL_dreamshaperXL.safetensors:
   steps_total: 8
-  cfg: 2
+  cfg: 2.0
   sampler_name: "dpmpp_sde"
   scheduler_name: "karras"
 leosamsHelloworldXL_hw50EulerALightning.safetensors:
   steps_total: 8
-  cfg: 1
+  cfg: 1.0
   sampler_name: "euler_ancestral"
   scheduler_name: "karras"
 moxieDiffusionXL_v16.safetensors:
