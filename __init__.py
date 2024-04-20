@@ -96,7 +96,7 @@ class CheckpointAutomaticConfig(CheckpointLoaderSimple):
                     f"======== Applying checkpoint automatic configuration: steps: {steps_total} | cfg: {cfg} | sampler: {sampler_name} | scheduler: {scheduler_name} ========")
             else:
                 raise Exception(
-                    "Automatic checkpoint configuration: unknown checkpoint. Disable \"automatic_config\" to use this checkpoint.")
+                    "Automatic checkpoint configuration: unknown checkpoint. Create a configuration in \"models_config.yaml\" or disable \"automatic_config\" to use this checkpoint.")
 
         out = super().load_checkpoint(**kwargs)
         return out + (
