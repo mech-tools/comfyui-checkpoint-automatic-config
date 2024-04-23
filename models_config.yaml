@@ -34,3 +34,13 @@ turbovisionxlSuperFastXLBasedOnNew_tvxlV32Bakedvae.safetensors:
   cfg: 1.5
   sampler_name: "dpmpp_sde"
   scheduler_name: "karras"
+creapromptLightning_v13.safetensors:
+  steps_total: 7
+  cfg: 2.0
+  sampler_name: "dpmpp_sde"
+  scheduler_name: "karras"
+moonrideMixes_moonrideLightMix1.safetensors:
+  steps_total: 8
+  cfg: 1.0
+  sampler_name: "euler"
+  scheduler_name: "sgm_uniform"
