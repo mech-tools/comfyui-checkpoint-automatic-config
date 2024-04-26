@@ -44,3 +44,8 @@ moonrideMixes_moonrideLightMix1.safetensors:
   cfg: 1.0
   sampler_name: "euler"
   scheduler_name: "sgm_uniform"
+juggernautXL_v9rdphoto2Inpaint.safetensors:
+  steps_total: 30
+  cfg: 6.0
+  sampler_name: "dpmpp_2m"
+  scheduler_name: "karras"
