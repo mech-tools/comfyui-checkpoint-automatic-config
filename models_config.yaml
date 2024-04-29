@@ -49,3 +49,8 @@ juggernautXL_v9rdphoto2Inpaint.safetensors:
   cfg: 6.0
   sampler_name: "dpmpp_2m"
   scheduler_name: "karras"
+juggernautXL_juggXRundiffusion.safetensors:
+  steps_total: 6
+  cfg: 2.0
+  sampler_name: "dpmpp_sde"
+  scheduler_name: "karras"
