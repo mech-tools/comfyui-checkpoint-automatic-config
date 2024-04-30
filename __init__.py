@@ -120,6 +120,7 @@ class ConfigPipe:
                 "clip": ("CLIP", {"forceInput": True, }),
                 "vae": ("VAE", {"forceInput": True, }),
                 "latent": ("LATENT", {"forceInput": True, }),
+                "image": ("IMAGE", {"forceInput": True, }),
                 "steps": ("INT", {"forceInput": True, }),
                 "cfg": ("FLOAT", {"forceInput": True, }),
                 "sampler": (comfy.samplers.SAMPLER_NAMES, {"forceInput": True, }),
@@ -133,10 +134,11 @@ class ConfigPipe:
         "CLIP",
         "VAE",
         "LATENT",
+        "IMAGE",
         "INT",
         "FLOAT",
         comfy.samplers.KSampler.SAMPLERS,
-        comfy.samplers.KSampler.SCHEDULERS
+        comfy.samplers.KSampler.SCHEDULERS,
     )
 
     RETURN_NAMES = (
@@ -145,10 +147,11 @@ class ConfigPipe:
         "CLIP",
         "VAE",
         "LATENT",
+        "IMAGE",
         "STEPS",
         "CFG",
         "SAMPLER",
-        "SCHEDULER"
+        "SCHEDULER",
     )
 
     FUNCTION = "pipe"
