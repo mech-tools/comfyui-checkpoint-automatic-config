@@ -40,7 +40,7 @@ script_dir = os.path.dirname(__file__)
 config_file = readConfigFile(os.path.join(script_dir, "models_config.yaml"))
 
 
-# Node
+# Nodes
 class CheckpointAutomaticConfig(CheckpointLoaderSimple):
     @classmethod
     def INPUT_TYPES(s):
@@ -109,10 +109,81 @@ class CheckpointAutomaticConfig(CheckpointLoaderSimple):
     CATEGORY = "Checkpoint Config Loader"
 
 
+class ConfigPipe:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {},
+            "optional": {
+                "config_pipe": ("CONFIG_PIPE", {"forceInput": True, }),
+                "model": ("MODEL", {"forceInput": True, }),
+                "clip": ("CLIP", {"forceInput": True, }),
+                "vae": ("VAE", {"forceInput": True, }),
+                "latent": ("LATENT", {"forceInput": True, }),
+                "steps_total": ("INT", {"forceInput": True, }),
+                "cfg": ("FLOAT", {"forceInput": True, }),
+                "sampler": (comfy.samplers.SAMPLER_NAMES, {"forceInput": True, }),
+                "scheduler": (comfy.samplers.SCHEDULER_NAMES, {"forceInput": True, }),
+            },
+        }
+
+    RETURN_TYPES = (
+        "CONFIG_PIPE",
+        "MODEL",
+        "CLIP",
+        "VAE",
+        "LATENT",
+        "INT",
+        "FLOAT",
+        comfy.samplers.KSampler.SAMPLERS,
+        comfy.samplers.KSampler.SCHEDULERS
+    )
+
+    RETURN_NAMES = (
+        "CONFIG_PIPE",
+        "MODEL",
+        "CLIP",
+        "VAE",
+        "LATENT",
+        "STEPS",
+        "CFG",
+        "SAMPLER",
+        "SCHEDULER"
+    )
+
+    FUNCTION = "pipe"
+
+    def pipe(self, config_pipe=None, **kwargs):
+        # Optional input keys
+        keys = self.INPUT_TYPES()["optional"]
+        del keys["config_pipe"]
+
+        # Process new pipe
+        pipe = config_pipe if config_pipe is not None else None
+        new_pipe = {}
+        for key in keys:
+            v = kwargs[key] if key in kwargs else None
+            new_pipe[key] = v if v is not None else pipe[
+                key] if pipe is not None and key in pipe else None
+
+        # Create new return values
+        tup_list = [new_pipe,]
+        for key in keys:
+            tup_list.append(
+                new_pipe[key] if new_pipe is not None and key in new_pipe else None)
+
+        return tuple(tup_list)
+
+    CATEGORY = "Checkpoint Config Loader"
+
+
+# Mappings
 NODE_CLASS_MAPPINGS = {
-    "CheckpointAutomaticConfig": CheckpointAutomaticConfig
+    "CheckpointAutomaticConfig": CheckpointAutomaticConfig,
+    "ConfigPipe": ConfigPipe,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "CheckpointAutomaticConfig": "Checkpoint Automatic Config"
+    "CheckpointAutomaticConfig": "Checkpoint Automatic Config",
+    "ConfigPipe": "Config Pipe",
 }
