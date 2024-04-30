@@ -120,7 +120,7 @@ class ConfigPipe:
                 "clip": ("CLIP", {"forceInput": True, }),
                 "vae": ("VAE", {"forceInput": True, }),
                 "latent": ("LATENT", {"forceInput": True, }),
-                "steps_total": ("INT", {"forceInput": True, }),
+                "steps": ("INT", {"forceInput": True, }),
                 "cfg": ("FLOAT", {"forceInput": True, }),
                 "sampler": (comfy.samplers.SAMPLER_NAMES, {"forceInput": True, }),
                 "scheduler": (comfy.samplers.SCHEDULER_NAMES, {"forceInput": True, }),
