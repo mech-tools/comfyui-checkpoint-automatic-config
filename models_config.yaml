@@ -54,3 +54,8 @@ juggernautXL_juggXRundiffusion.safetensors:
   cfg: 2.0
   sampler_name: "dpmpp_sde"
   scheduler_name: "karras"
+stoiqoNewrealityxlALL_Lightning10.safetensors:
+  steps_total: 6
+  cfg: 1.5
+  sampler_name: "dpmpp_sde"
+  scheduler_name: "karras"
