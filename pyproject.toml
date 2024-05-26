@@ -9,6 +9,6 @@ Repository = "https://github.com/DarKDinDoN/comfyui-checkpoint-automatic-config"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "darkdindon"
 DisplayName = "comfyui-checkpoint-automatic-config"
 Icon = ""
