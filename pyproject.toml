@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-checkpoint-automatic-config"
+description = "This node was designed to help with checkpoint configuration."
+version = "1.0.0"
+license = "LICENSE"
+
+[project.urls]
+Repository = "https://github.com/DarKDinDoN/comfyui-checkpoint-automatic-config"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "comfyui-checkpoint-automatic-config"
+Icon = ""
