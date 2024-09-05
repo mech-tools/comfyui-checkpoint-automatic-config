@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-checkpoint-automatic-config"
 description = "This node was designed to help with checkpoint configuration. Fee free to add new checkpoint configurations!"
-version = "1.0.1"
+version = "1.0.2"
 license = { file = "LICENSE" }
 
 [project.urls]
