@@ -1,5 +1,5 @@
 # Checkpoint Automatic Config
-# Created by DarkDinDoN
+# Created by Maxime
 import os
 import yaml
 import comfy.samplers
