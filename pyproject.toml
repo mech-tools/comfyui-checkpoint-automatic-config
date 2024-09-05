@@ -5,7 +5,7 @@ version = "1.0.1"
 license = { file = "LICENSE" }
 
 [project.urls]
-Repository = "https://github.com/maxime/comfyui-checkpoint-automatic-config"
+Repository = "https://github.com/mech-tools/comfyui-checkpoint-automatic-config"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
