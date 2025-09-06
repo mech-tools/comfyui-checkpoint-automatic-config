@@ -1,3 +1,4 @@
 # ComfyUI Checkpoint Automatic Config
 
-This node was designed to help with checkpoint configuration.
+This set of noded was designed to help with checkpoint configuration.
+
